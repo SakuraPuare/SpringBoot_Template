@@ -1,0 +1,49 @@
+spring:
+  main:
+    allow-circular-references: true # 允许依赖循环
+  datasource:
+    url: jdbc:mariadb://localhost:3306/template
+    username: root
+    password: 123456
+    driver-class-name: org.mariadb.jdbc.Driver
+    # url: jdbc:postgresql://localhost:5432/template
+    # username: postgres
+    # password: 123456
+    # driver-class-name: org.postgresql.Driver
+  application:
+    name: Template
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+server:
+  port: 8123
+  tomcat:
+    uri-encoding: UTF-8
+    remoteip:
+      host-header: X-Forwarded-Host
+      protocol-header: X-Forwarded-Proto
+      port-header: X-Forwarded-Port
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+
+jwt:
+  signKey: sakurapuare
+  expire: 604800
+  # 7 days in seconds
+
+
+wechat:
+  miniapp:
+    appId:
+    appSecret:
